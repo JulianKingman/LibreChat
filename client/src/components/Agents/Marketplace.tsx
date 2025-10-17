@@ -228,7 +228,9 @@ const AgentMarketplace: React.FC<AgentMarketplaceProps> = ({ className = '' }) =
       [QueryKeys.messages, conversation?.conversationId ?? Constants.NEW_CONVO],
       [],
     );
-    queryClient.invalidateQueries([QueryKeys.messages]);
+    queryClient.invalidateQueries({
+      queryKey: [QueryKeys.messages]
+    });
     newConversation();
   };
 
@@ -308,7 +310,7 @@ const AgentMarketplace: React.FC<AgentMarketplaceProps> = ({ className = '' }) =
                       </>
                     ) : (
                       // Invisible placeholder to maintain height
-                      <div className="h-10 w-10" />
+                      (<div className="h-10 w-10" />)
                     )}
                   </div>
                 </div>

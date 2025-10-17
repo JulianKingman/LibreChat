@@ -37,7 +37,9 @@ export default function NewChat({
         [QueryKeys.messages, conversation?.conversationId ?? Constants.NEW_CONVO],
         [],
       );
-      queryClient.invalidateQueries([QueryKeys.messages]);
+      queryClient.invalidateQueries({
+        queryKey: [QueryKeys.messages]
+      });
       newConvo();
       navigate('/c/new', { state: { focusChat: true } });
       if (isSmallScreen) {

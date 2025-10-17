@@ -19,7 +19,9 @@ export default function HeaderNewChat() {
       [QueryKeys.messages, conversation?.conversationId ?? Constants.NEW_CONVO],
       [],
     );
-    queryClient.invalidateQueries([QueryKeys.messages]);
+    queryClient.invalidateQueries({
+      queryKey: [QueryKeys.messages]
+    });
     newConversation();
   };
 

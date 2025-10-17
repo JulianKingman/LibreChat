@@ -60,7 +60,9 @@ const AgentDetail: React.FC<AgentDetailProps> = ({ agent, isOpen, onClose }) => 
         [QueryKeys.messages, conversation?.conversationId ?? Constants.NEW_CONVO],
         [],
       );
-      queryClient.invalidateQueries([QueryKeys.messages]);
+      queryClient.invalidateQueries({
+        queryKey: [QueryKeys.messages]
+      });
 
       /** Template with agent configuration */
       const template = {
